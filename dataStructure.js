@@ -64,10 +64,9 @@ In order to complete this challenge, set the 2nd position (index 1) of myArray t
 */
 let myArray = ["a", "b", "c", "d"];
 // change code below this line
-myArray[1] = "Yayy!"
+myArray[1] = "Yayy!";
 //change code above this line
 console.log(myArray);
-
 
 /*
 Basic Data Structures: Add Items to an Array with push() and unshift()
@@ -90,15 +89,14 @@ We have defined a function, mixedNumbers, which we are passing an array as an ar
 
 function mixedNumbers(arr) {
   // change code below this line
-  arr.push(7, 'VIII', 9);
-  arr.unshift('I', 2, 'three');
+  arr.push(7, "VIII", 9);
+  arr.unshift("I", 2, "three");
   // change code above this line
   return arr;
 }
 
 // do not change code below this line
-console.log(mixedNumbers(['IV', 5, 'six']));
-
+console.log(mixedNumbers(["IV", 5, "six"]));
 
 /*
 Basic Data Structures: Remove Items from an Array with pop() and shift()
@@ -130,8 +128,7 @@ function popShift(arr) {
 }
 
 // do not change code below this line
-console.log(popShift(['challenge', 'is', 'not', 'complete']));
-
+console.log(popShift(["challenge", "is", "not", "complete"]));
 
 /*
 Basic Data Structures: Remove Items Using splice()
@@ -166,7 +163,6 @@ function sumOfTen(arr) {
 // do not change code below this line
 console.log(sumOfTen([2, 5, 1, 5, 2, 1]));
 
-
 /*
 Basic Data Structures: Add Items Using splice()
 
@@ -195,8 +191,15 @@ function htmlColorNames(arr) {
 }
 
 // do not change code below this line
-console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
-
+console.log(
+  htmlColorNames([
+    "DarkGoldenRod",
+    "WhiteSmoke",
+    "LavenderBlush",
+    "PaleTurqoise",
+    "FireBrick"
+  ])
+);
 
 /*
 Basic Data Structures: Copy Array Items Using slice()
@@ -220,9 +223,9 @@ function forecast(arr) {
 }
 
 // do not change code below this line
-console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
-
-
+console.log(
+  forecast(["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"])
+);
 
 /*
 Basic Data Structures: Copy an Array with the Spread Operator
@@ -253,8 +256,6 @@ function copyMachine(arr, num) {
 // change code here to test different cases:
 console.log(copyMachine([true, false, true], 2));
 
-
-
 /*
 Basic Data Structures: Combine Arrays with the Spread Operator
 
@@ -270,14 +271,13 @@ Using spread syntax, we have just achieved an operation that would have been mor
 We have defined a function spreadOut that returns the variable sentence, modify the function using the spread operator so that it returns the array ['learning', 'to', 'code', 'is', 'fun'].
 */
 function spreadOut() {
-  let fragment = ['to', 'code'];
-  let sentence = ['learning', ...fragment, 'is', 'fun']; // change this line
+  let fragment = ["to", "code"];
+  let sentence = ["learning", ...fragment, "is", "fun"]; // change this line
   return sentence;
 }
 
 // do not change code below this line
 console.log(spreadOut());
-
 
 /*
 Basic Data Structures: Check For The Presence of an Element With indexOf()
@@ -297,12 +297,49 @@ indexOf() can be incredibly useful for quickly checking for the presence of an e
 
 function quickCheck(arr, elem) {
   // change code below this line
-  if (arr.indexOf(elem) == -1)
-    return false;
-  else
-    return true;
+  if (arr.indexOf(elem) == -1) return false;
+  else return true;
   // change code above this line
 }
 
 // change code here to test different cases:
-console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+console.log(quickCheck(["squash", "onions", "shallots"], "mushrooms"));
+
+/*
+Basic Data Structures: Iterate Through All an Array's Items Using For Loops
+
+Sometimes when working with arrays, it is very handy to be able to iterate through each item to find one or more elements that we might need, or to manipulate an array based on which data items meet a certain set of criteria. JavaScript offers several built in methods that each iterate over arrays in slightly different ways to achieve different results (such as every(), forEach(), map(), etc.), however the technique which is most flexible and offers us the greatest amount of control is a simple for loop.
+
+Consider the following:
+
+function greaterThanTen(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 10) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
+// returns [12, 14, 80]
+Using a for loop, this function iterates through and accesses each element of the array, and subjects it to a simple test that we have created. In this way, we have easily and programmatically determined which data items are greater than 10, and returned a new array containing those items.
+
+
+We have defined a function, filteredArray, which takes arr, a nested array, and elem as arguments, and returns a new array. elem represents an element that may or may not be present on one or more of the arrays nested within arr. Modify the function, using a for loop, to return a filtered version of the passed array such that any array nested within arr containing elem has been removed.
+*/
+function filteredArray(arr, elem) {
+  let newArr = [];
+  // change code below this line
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].indexOf(elem) == -1) {
+      newArr.push(arr[i]);
+    }
+  }
+  // change code above this line
+  return newArr;
+}
+
+// change code here to test different cases:
+console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
